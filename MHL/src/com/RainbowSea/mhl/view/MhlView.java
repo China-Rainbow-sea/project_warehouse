@@ -59,7 +59,7 @@ public class MhlView {
                     if(employee!= null) {
                         while(loop) {
                             System.out.println("============ 满汉楼【"+employee.getName()+"(二级菜单)】 ============");
-                            System.out.println("\t\t 1.显示菜单状态 ");
+                            System.out.println("\t\t 1.显示餐桌状态 ");
                             System.out.println("\t\t 2.预定餐桌");
                             System.out.println("\t\t 3.显示所有菜品");
                             System.out.println("\t\t 4.点餐服务");
@@ -330,6 +330,7 @@ public class MhlView {
             return;
         }
 
+
         // 最后的 Y/N 确定
         System.out.print("是否确认结账【Y/N】: ");
         char key = Utility.readConfirmSelection(); // 不区分大小写，会自动转换为大写
@@ -363,6 +364,13 @@ public class MhlView {
             System.out.println("【退出】");
             return ;
         }
+
+        // 判断该餐桌编号是否存在
+        if(diningService.getDiningById(diningId) == null) {
+            System.out.println("【该餐桌编号不存在，请重新选择】");
+            return ;
+        }
+
 
         // 判断餐桌的状态是否为 已经预定了，
         if(!diningService.getDiningByIdAndState(diningId)) {
