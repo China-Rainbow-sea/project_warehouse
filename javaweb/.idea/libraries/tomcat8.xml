@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="tomcat8">
+    <CLASSES>
+      <root url="file://D:/dev/tomcat8" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://D:/dev/tomcat8/webapps/docs/appdev/sample/src" />
+      <root url="file://D:/dev/tomcat8/webapps/examples/WEB-INF/classes" />
+      <root url="file://D:/dev/tomcat8/work/Catalina/localhost/ROOT" />
+      <root url="file://D:/dev/tomcat8/work/Catalina/localhost/Test" />
+    </SOURCES>
+  </library>
+</component>

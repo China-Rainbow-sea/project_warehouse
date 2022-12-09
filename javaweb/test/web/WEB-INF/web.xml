@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+<!--注意这里需要空行一下-->
+<!--    <context-param>-->
+<!--    <param-name>encoding</param-name>-->
+<!--    <param-value>utf-8</param-value>-->
+<!--    </context-param>-->
+
+    <servlet>
+        <servlet-name>employeeLog</servlet-name>
+        <servlet-class>com.RainbowSea.mhl.servlet.employeeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>employeeLog</servlet-name>
+        <url-pattern>/user</url-pattern>
+    </servlet-mapping>
+
+    <!--
+     1.用户发请求： action=user
+     2. 项目中： web.xml 中找到url-pattern标签= /user
+     3. 再找到 servlet-name 标签 = employeeLog 注意两个相互对应的 servlet-name的值必须一致，
+     4. 最后找到 servlet-class 标签对应包下的   com.RainbowSea.mhl.servlet.employeeServlet
+     5. 注意的是用户发送的是 post/还是 get ,使用不同的方式调用不同的 doxxx方法。
+
+    -->
+
+<!--    显示餐桌状态-->
+    <servlet>
+        <servlet-name>showTableS</servlet-name>
+        <servlet-class>com.RainbowSea.mhl.servlet.showTableServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>showTableS</servlet-name>
+        <url-pattern>/show</url-pattern> <!-- 不用漏了 “/” 斜杆-->
+    </servlet-mapping>
+
+
+<!--    预定餐桌页面跳转-->
+    <servlet>
+        <servlet-name>skipReserve</servlet-name>
+        <servlet-class>com.RainbowSea.mhl.servlet.skipReserveServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>skipReserve</servlet-name>
+        <url-pattern>/skipReserve</url-pattern>  <!--注意不要忘记了，斜杆-->
+    </servlet-mapping>
+
+
+    <!-- 预定餐桌处理 -->
+    <servlet>
+        <servlet-name>reserveTable</servlet-name>
+        <servlet-class>com.RainbowSea.mhl.servlet.reserveTableServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>reserveTable</servlet-name>
+        <url-pattern>/reserveTable</url-pattern>  <!-- 注意使用上 斜杆-->
+    </servlet-mapping>
+
+
+    <!--显示所有的菜品信息-->
+    <servlet>
+        <servlet-name>allShowMenu</servlet-name>
+        <servlet-class>com.RainbowSea.mhl.servlet.showAllMenu</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>allShowMenu</servlet-name>
+        <url-pattern>/allShowMenu</url-pattern> <!-- 注意不要忘记了 “斜杆” -->
+    </servlet-mapping>
+
+
+    <!--跳转到 web-inf orderFood.jsp点餐服务的页面-->
+    <servlet>
+        <servlet-name>orderFood</servlet-name>
+        <servlet-class>com.RainbowSea.mhl.servlet.skipOrderFood</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>orderFood</servlet-name>
+        <url-pattern>/orderFood</url-pattern> <!-- 注意不要忘记了 “斜杆” -->
+    </servlet-mapping>
+
+
+    <!-- 处理点餐服务的业务逻辑 -->
+    <servlet>
+        <servlet-name>orderFoodServlet</servlet-name>
+        <servlet-class>com.RainbowSea.mhl.servlet.orderFoodServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>orderFoodServlet</servlet-name>
+        <url-pattern>/orderFoodServlet</url-pattern>  <!-- 不要忘记了 "斜杆"-->
+    </servlet-mapping>
+
+
+    <!-- 显示所有账单的信息-->
+    <servlet>
+        <servlet-name>showAllBillServlet</servlet-name>
+        <servlet-class>com.RainbowSea.mhl.servlet.showAllBillServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>showAllBillServlet</servlet-name>
+        <url-pattern>/showAllBillServlet</url-pattern>  <!-- 不要忘记了 "斜杆"-->
+    </servlet-mapping>
+
+
+    <!-- 跳转到取消预定的WEB-INF页面-->
+    <servlet>
+        <servlet-name>skipCancelReserve</servlet-name>
+        <servlet-class>com.RainbowSea.mhl.servlet.skipCancelReserve</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>skipCancelReserve</servlet-name>
+        <url-pattern>/skipCancelReserve</url-pattern>  <!-- 不要忘记了 "斜杆" -->
+    </servlet-mapping>
+
+    <!-- 处理到取消预定的业务-->
+    <servlet>
+        <servlet-name>cancelReserveService</servlet-name>
+        <servlet-class>com.RainbowSea.mhl.servlet.cancelReserveService</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cancelReserveService</servlet-name>
+        <url-pattern>/cancelReserveService</url-pattern>  <!-- 不要忘记了 "斜杆" -->
+    </servlet-mapping>
+
+
+    <!-- 退出满汉楼服务 -->
+    <servlet>
+        <servlet-name>exitMhlServlet</servlet-name>
+        <servlet-class>com.RainbowSea.mhl.servlet.exitMhlServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>exitMhlServlet</servlet-name>
+        <url-pattern>/exitMhlServlet</url-pattern>  <!-- 注意不要忘记了 “斜杆” -->
+    </servlet-mapping>
+
+
+    <!-- 跳转到skipCheckOut1Servlet 结账1页面 WEB-INF 的页面-->
+    <servlet>
+        <servlet-name>skipCheckOut1Servlet</servlet-name>
+        <servlet-class>com.RainbowSea.mhl.servlet.skipCheckOut1Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>skipCheckOut1Servlet</servlet-name>
+        <url-pattern>/skipCheckOut1Servlet</url-pattern>  <!-- 注意不要忘记了 “斜杆” -->
+    </servlet-mapping>
+
+
+
+
+    <!-- 处理结账1，提交要结账的餐桌位号 -->
+    <servlet>
+        <servlet-name>checkOut1Servlet</servlet-name>
+        <servlet-class>com.RainbowSea.mhl.servlet.checkOut1Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>checkOut1Servlet</servlet-name>
+        <url-pattern>/checkOut1Servlet</url-pattern>  <!-- 注意不要忘记了 “斜杆” -->
+    </servlet-mapping>
+
+
+
+    <!-- 处理结账2.提交的支付方式-->
+    <servlet>
+        <servlet-name>checkOut2Servlet</servlet-name>
+        <servlet-class>com.RainbowSea.mhl.servlet.checkOut2Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>checkOut2Servlet</servlet-name>
+        <url-pattern>/checkOut2Servlet</url-pattern>   <!--不用忘记加 "斜杆了" -->
+    </servlet-mapping>
+
+
+
+
+
+</web-app>
