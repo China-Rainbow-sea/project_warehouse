@@ -11,8 +11,9 @@
     <title>登录失败</title>
 </head>
 <body>
-    <div>
-        密码或账号错误&nbsp;&nbsp;<a href="/mhl/index.html" >请重新登录</a>
+    <div align="center">
+        <h3>密码或账号错误</h3> <br>
+        <a href="/mhl/index.html" >请重新登录</a>
     </div>
 </body>
 </html>

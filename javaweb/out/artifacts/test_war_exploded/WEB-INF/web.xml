@@ -10,6 +10,7 @@
 <!--    <param-value>utf-8</param-value>-->
 <!--    </context-param>-->
 
+    <!-- 用户登录处理,登录成功后跳转主界面-->
     <servlet>
         <servlet-name>employeeLog</servlet-name>
         <servlet-class>com.RainbowSea.mhl.servlet.employeeServlet</servlet-class>

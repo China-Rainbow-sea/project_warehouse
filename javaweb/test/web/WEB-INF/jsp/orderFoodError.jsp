@@ -19,7 +19,11 @@
 
     %>
     <!--使用表达式中,获取变量显示-->
-    <h2 align="center"><%=error%></h2>
+    <h2 align="center"><%=error%></h2><br>
+    <div align="center">
+        <input type="button" value="返回重新点餐" onclick="window.history.back()" /> <br>
+    </div>
+
 
 </body>
 </html>

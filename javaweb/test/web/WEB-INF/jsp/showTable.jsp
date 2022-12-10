@@ -46,6 +46,12 @@
             }
         %>
 
+        <tr>
+            <td>
+                <input type="button" value="返回主菜单" onclick="window.history.back()" />
+            </td>
+        </tr>
+
     </table>
 
 

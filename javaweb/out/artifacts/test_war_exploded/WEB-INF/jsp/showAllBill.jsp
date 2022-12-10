@@ -14,7 +14,7 @@
 </head>
 <body>
     <h2 align="center">显示所有账单信息</h2>
-    <table align="center" width="500" border="1">
+    <table align="center" width="50%" border="1">
         <tr>
             <th>账单编号</th>
             <th>日期时间</th>

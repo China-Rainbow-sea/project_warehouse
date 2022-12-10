@@ -20,7 +20,10 @@
 
     %>
 
-    <h2 align="center"><%=error%></h2>
+    <div align="center">
+        <h2><%=error%></h2> <br>
+        <input type="button" value="返回重新取消预定" onclick="window.history.back()"/>
+    </div>
 
 </body>
 </html>

@@ -19,7 +19,7 @@
 </head>
 <body>
     <div>
-        <table align="center" width="500" border="1">
+        <table align="center" width="50%" border="1">
             <tr>
                 <th>账单编号</th>
                 <th>日期时间</th>
@@ -37,10 +37,13 @@
                 List<Bill> billList = (List<Bill>) request.getAttribute("billLists");   // 注意字符串名需要对应上，才能获取到其中的值
 
                 // 获取到查询到该餐桌未结账的消费总金额: request.setAttribute("sumMoneys",sumMoneys);
-                Double sumMoneys = (Double) request.getAttribute("sumMoneys");  // 消费总金额
+                double sumMoneys = (double) request.getAttribute("sumMoneys");  // 消费总金额
+
+                double diningId = 0;   // 存储餐桌位,用于后端的根据餐桌位进行结账更新数据表
 
                 // 循环链表取值,
                 for(Bill b : billList) {
+                    diningId = b.getDiningId();    // 获取到显示的餐桌位号
 
             %>
             <tr>
@@ -63,7 +66,7 @@
             </tr>
         </table>
         <form action="checkOut2Servlet" method="post">
-            <table align="center" width="500">
+            <table align="center" width="50%">
                 <tr>
                     <th>请选择支付方式: </th>
                     <td>
@@ -79,6 +82,9 @@
                 </tr>
                 <tr>
                     <td><input type="submit" value="确认支付" onclick=" return confirms()"></td>
+                    <td>   <!-- 第一个隐藏域，用于提交该账单对应的，餐桌位号，用于后端结账处理，更新数据表-->
+                        <input type="hidden" name="diningId" value="<%=diningId%>" />
+                    </td>
                 </tr>
                 <tr>
                     <td> <!-- window.history.back()返回上一页界面 -->

@@ -22,7 +22,7 @@
     <h2 align="center"><%=error%></h2><br><br>
     <table align="center">
         <tr>  <!-- onclick="window.history.back()返回上一个页面-->
-            <td> <input type="button" value="返回主菜单" onclick="window.history.back()" /> </td>
+            <td> <input type="button" value="返回" onclick="window.history.back()" /> </td>
         </tr>
     </table>
 
