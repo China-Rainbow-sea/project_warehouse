@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="bubble-animation">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/chat/lib/bubble-animation.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
