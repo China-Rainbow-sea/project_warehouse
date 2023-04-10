@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">社区防疫</string>
+    <string name="task">接收任务</string>
+    <string name="memo">工作备忘</string>
+    <string name="report">信息上报</string>
+    <string name="query">信息查询</string>
+    <string name="clickAndWrite">点击此处输入文字</string>
+</resources>

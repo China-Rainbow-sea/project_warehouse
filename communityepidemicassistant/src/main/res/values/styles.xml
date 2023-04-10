@@ -1,0 +1,34 @@
+<resources>
+    <!--   浮动菜单的文本标签的样式   -->
+    <style name="menu_labels_style">
+        <item name="android:background">@drawable/fab_label_background</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--在Android 4.4之前的版本上运行，直接跟随系统主题-->
+    <style name="TranslucentTheme" parent="AppTheme">
+
+    </style>
+
+    <!--   去掉Activity的ActionBar的样式   -->
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <!--    登录页EditText样式   -->
+    <style name="MyEditText" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/dianzilan</item>
+        <item name="colorControlActivated">@color/dianzilan</item>
+    </style>
+</resources>

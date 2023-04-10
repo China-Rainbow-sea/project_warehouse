@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item
+    android:id="@+id/menu_task"
+    android:enabled="true"
+    android:icon="@mipmap/task"
+    android:title="抗疫工作" />
+<item
+    android:id="@+id/menu_info"
+    android:enabled="true"
+    android:icon="@mipmap/info"
+    android:title="人员信息" />
+</menu>

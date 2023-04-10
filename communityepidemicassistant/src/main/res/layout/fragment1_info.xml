@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--一级fragment布局-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="12dp"
+        android:paddingBottom="10dp"
+        android:background="@color/colorBackGroundWhite">
+
+        <!--顶部滑动选项卡 上级任务-->
+        <TextView
+            android:id="@+id/tv_info_report"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/report"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24dp"/>
+
+        <!--顶部滑动选项卡 工作备忘-->
+        <TextView
+            android:id="@+id/tv_info_query"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/query"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24dp"/>
+    </LinearLayout>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/mainViewPager_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

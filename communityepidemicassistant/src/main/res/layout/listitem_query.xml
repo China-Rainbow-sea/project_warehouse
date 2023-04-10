@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<HorizontalScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="10dp"
+    android:scrollbars="none">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="7dp">
+        <TextView
+            android:id="@+id/tv_listitem_infoName"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_listitem_infoDate"
+            android:layout_width="95dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/tv_listitem_infoIfFever"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tv_listitem_infoIfTouch"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/tv_listitem_infoID"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:text="35082119990110084X"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="5dp"/>
+
+        <TextView
+            android:id="@+id/tv_listitem_infoPhone"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:text="18751965792"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:layout_marginHorizontal="5dp"/>
+
+
+        <TextView
+            android:id="@+id/tv_listitem_infoAddress"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"/>
+    </LinearLayout>
+
+</HorizontalScrollView>
+</LinearLayout>

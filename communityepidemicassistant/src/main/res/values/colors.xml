@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorWhiteBlue">#F0FFFF</color>
+    <color name="colorBackGroundWhite">#FFFFFF</color>
+    <color name="colorWhiteLight">#FCFCFC</color>
+    <color name="colorWhiteSmoke">#F5F5F5</color>
+    <color name="colorPress">#33728dff</color>
+    <color name="wuhuaguohong">#efafad</color>
+    <color name="hedinghong">#d42517</color>
+    <color name="colorPrimaryDark">#696969</color>
+    <color name="black">#000000</color>
+    <color name="colorBright">#C3A6</color>
+    <color name="colorAccent">#10aec2</color>
+    <color name="youyu">#008B8B</color>
+    <color name="colorBlueDark">#57c3c2</color>
+    <color name="colorPrimary">#5CACEE</color>
+    <color name="colorBrightBlue">#2196f2</color>
+
+
+    <color name="zhulv">#1ba784</color>
+    <color name="shilv">#57c3c2</color>
+    <color name="dianzilan">#10aec2</color>
+    <color name="hui">#ffeffa</color>
+
+</resources>

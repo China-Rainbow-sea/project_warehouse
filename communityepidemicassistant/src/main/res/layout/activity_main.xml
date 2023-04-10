@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity"
+android:fitsSystemWindows="true"
+android:orientation="vertical"
+android:gravity="bottom"
+android:background="@color/colorBackGroundWhite">
+
+<!--    LinearLayout用来填充一级fragment实现底部导航栏切换页面-->
+<LinearLayout
+    android:id="@+id/mainview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:orientation="vertical"
+    android:background="@color/colorWhiteSmoke"></LinearLayout>
+
+<!--    底部导航栏，app:menu对应的是导航栏的组成内容-->
+<com.google.android.material.bottomnavigation.BottomNavigationView
+    android:id="@+id/bv_bottomNavigation"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:layout_alignParentBottom="true"
+    android:background="@color/colorBackGroundWhite"
+    app:itemIconTint="@drawable/bottom_navigation_item_selector"
+    app:itemTextColor="@drawable/bottom_navigation_item_selector"
+    app:menu="@menu/main_bottom_navigation" />
+
+</LinearLayout>

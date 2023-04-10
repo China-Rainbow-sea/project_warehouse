@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/colorBackGroundWhite">
+
+    <EditText
+        android:id="@+id/et_loginactivity_username"
+        android:layout_width="320dp"
+        android:layout_height="75dp"
+        android:hint="社区账号"
+        android:singleLine="true"
+        android:textSize="22dp"
+        android:theme="@style/MyEditText"/>
+    <EditText
+        android:id="@+id/et_loginactivity_password"
+        android:layout_width="320dp"
+        android:layout_height="75dp"
+        android:hint="社区密码"
+        android:singleLine="true"
+        android:inputType="textPassword"
+        android:textSize="22dp"
+        android:theme="@style/MyEditText"/>
+    <Button
+        android:id="@+id/bt_loginactivity_login"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="登录"
+        android:background="@drawable/bt_login_shape"
+        android:textColor="#ffffff"
+        android:textSize="25dp"
+        android:onClick="onClick"
+        />
+
+</LinearLayout>
