@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+    <ImageView android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:background="@color/purple_200"
+        android:src="@drawable/title"/>
+    <TextView
+        android:background="@drawable/fruit"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+        <TableLayout
+            android:paddingTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TableRow>
+                <Button android:id="@+id/shouye" android:layout_width="102dp" android:background="#FFFFFF" android:drawableTop="@drawable/shouye" android:text="推荐"/>
+                <Button android:id="@+id/yuyue" android:layout_width="102dp" android:drawableTop="@drawable/yuyue" android:background="#FFFFFF" android:text="预约"/>
+                <Button android:id="@+id/taolun" android:layout_width="102dp" android:drawableTop="@drawable/taolun" android:background="#FFFFFF" android:text="讨论"/>
+                <Button android:id="@+id/wode" android:layout_width="102dp" android:drawableTop="@drawable/wode" android:background="#FFFFFF" android:text="我的"/>
+            </TableRow>
+        </TableLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="推荐果蔬"
+            android:textSize="25dp"
+            android:paddingLeft="30dp"
+            android:paddingTop="10dp"/>
+        <ListView
+            android:id="@+id/tuijian"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </ListView>
+        </LinearLayout>
+    </LinearLayout>
