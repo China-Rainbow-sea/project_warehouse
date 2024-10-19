@@ -1,6 +1,7 @@
 package com.rainbowsea.smartcampus.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.rainbowsea.smartcampus.pojo.Admin;
 import com.rainbowsea.smartcampus.pojo.LoginForm;
 import com.rainbowsea.smartcampus.pojo.Student;
@@ -10,15 +11,21 @@ import com.rainbowsea.smartcampus.service.StudentService;
 import com.rainbowsea.smartcampus.service.TeacherService;
 import com.rainbowsea.smartcampus.util.CreateVerifiCodeImage;
 import com.rainbowsea.smartcampus.util.JwtHelper;
+import com.rainbowsea.smartcampus.util.MD5;
 import com.rainbowsea.smartcampus.util.Result;
 import com.rainbowsea.smartcampus.util.ResultCodeEnum;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
@@ -27,11 +34,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
+
+@Api(tags = "系统控制器")
 @RestController
 @RequestMapping("/sms/system")
 public class SystemController {
@@ -44,6 +55,7 @@ public class SystemController {
     private TeacherService teacherService;
 
 
+    @ApiOperation("通过token 口令获取当前登录的用户信息的方法")
     @GetMapping("/getInfo")
     public Result getInfoByToken(@RequestHeader("token") String token) {
 
@@ -82,8 +94,11 @@ public class SystemController {
     }
 
 
+    @ApiOperation("登录的方法")
     @PostMapping("/login")
-    public Result login(@RequestBody LoginForm loginForm, HttpServletRequest request) {
+    public Result login(
+            @ApiParam("登录提交信息的form表单") @RequestBody LoginForm loginForm,
+            HttpServletRequest request) {
 
 
         // 验证码校验
@@ -244,6 +259,106 @@ public class SystemController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+
+    @ApiOperation("文件上传统一入口")
+    @PostMapping("/headerImgUpload")
+    public Result headeImgUpload(
+            @ApiParam("头像文件") @RequestPart("multipartFile") MultipartFile multipartFile,
+            HttpServletRequest request
+
+    ) {
+        // 使用UUID随机生成文件名
+        String uuid = UUID.randomUUID().toString().replace("-", "").toLowerCase();
+        String originalFilename = multipartFile.getOriginalFilename();
+        int i = originalFilename.lastIndexOf(".");
+        //生成新的文件名字
+        String newFileName = uuid + originalFilename.substring(i);
+
+        // 保存文件
+        // 优化，可以将文件发送到第三方/独立的图片服务器上
+        //生成文件的保存路径(实际生产环境这里会使用真正的文件存储服务器)
+        //request.getServletContext().getRealPath("public/upload/")
+        String portraitPath = "E:\\Java\\project\\smartCampus\\uploadImage".concat(newFileName);// concat 字符串的拼接
+
+        try {
+            multipartFile.transferTo(new File(portraitPath));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        // 响应图片的路径
+        String path = "upload/".concat(newFileName); // concat 字符串的拼接
+        return Result.ok(path);
+
+
+    }
+
+
+    @ApiOperation("更新用户密码的处理器")
+    @PostMapping("/updatePwd/{oldPwd}/{newPwd}")
+    public Result updatePwd(
+            @ApiParam("token口令") @RequestHeader("token") String token,
+            @ApiParam("旧密码") @PathVariable("oldPwd") String oldPwd,
+            @ApiParam("新密码") @PathVariable("newPwd") String newPwd
+    ) {
+        boolean expiration = JwtHelper.isExpiration(token);
+        if (expiration) {
+            // token 过期
+            return Result.fail().message("token失效，请重新登录后修改密码");
+        }
+
+        // 获取用户ID和用户类型
+        Long userId = JwtHelper.getUserId(token);
+        Integer userType = JwtHelper.getUserType(token);
+
+        oldPwd = MD5.encrypt(oldPwd);
+        newPwd = MD5.encrypt(newPwd);
+
+        switch (userType) {
+            case 1:
+                QueryWrapper<Admin> queryWrapper1 = new QueryWrapper<>();
+                queryWrapper1.eq("id", userId.intValue());
+                queryWrapper1.eq("password", oldPwd);
+                Admin admin = adminService.getOne(queryWrapper1);
+                if (admin != null) {
+                    // 修改
+                    admin.setPassword(newPwd);
+                    adminService.saveOrUpdate(admin);
+                } else {
+                    return Result.fail().message("原密码有误!");
+                }
+                break;
+            case 2:
+                QueryWrapper<Student> queryWrapper2 = new QueryWrapper<>();
+                queryWrapper2.eq("id", userId.intValue());
+                queryWrapper2.eq("password", oldPwd);
+                Student student = studentService.getOne(queryWrapper2);
+                if (student != null) {
+                    // 修改
+                    student.setPassword(newPwd);
+                    studentService.saveOrUpdate(student);
+                } else {
+                    return Result.fail().message("原密码有误!");
+                }
+                break;
+            case 3:
+                QueryWrapper<Teacher> queryWrapper3 = new QueryWrapper<>();
+                queryWrapper3.eq("id", userId.intValue());
+                queryWrapper3.eq("password", oldPwd);
+                Teacher teacher = teacherService.getOne(queryWrapper3);
+                if (teacher != null) {
+                    // 修改
+                    teacher.setPassword(newPwd);
+                    teacherService.saveOrUpdate(teacher);
+                } else {
+                    return Result.fail().message("原密码有误!");
+                }
+                break;
+        }
+
+        return Result.ok();
     }
 
 

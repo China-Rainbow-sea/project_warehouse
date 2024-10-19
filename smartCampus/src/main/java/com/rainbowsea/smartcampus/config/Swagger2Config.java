@@ -57,7 +57,9 @@ public class Swagger2Config {
                 .apiInfo(webApiInfo())
                 .select()
                 //可以测试请求头中：输入token
-                .apis(RequestHandlerSelectors.withClassAnnotation(ApiOperation.class))
+                //.apis(RequestHandlerSelectors.withClassAnnotation(ApiOperation.class))
+                // 也就是  swagger 测试接口，可以测试哪些类(指明对应类下的包路径)
+                .apis(RequestHandlerSelectors.basePackage("com.rainbowsea.smartcampus.controller"))
                 //过滤掉admin路径下的所有页面
                 //.paths(Predicates.and(PathSelectors.regex("/sms/.*")))
                 //过滤掉所有error或error.*页面
