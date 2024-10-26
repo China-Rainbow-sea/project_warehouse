@@ -1,0 +1,6 @@
+/*该 assets/css 是一个全局的样式，之后我们的全局样式可以写在这里*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

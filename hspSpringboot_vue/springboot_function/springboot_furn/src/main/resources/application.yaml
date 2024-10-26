@@ -1,0 +1,16 @@
+server:
+  port: 9090
+
+spring:
+  datasource:
+    username: root
+    password: MySQL123
+    url: jdbc:mysql://localhost:3306/springboot_vue?useUnicode=true&characterEncoding=utf-8&useS SL=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true # \u5F00\u542F\u81EA\u52A8\u6620\u5C04\u529F\u80FD
+  mapper-locations: classpath:mapper/*.xml # \u914D\u7F6Emapper.xml \u914D\u7F6E\u6587\u4EF6\u8DEF\u5F84
+  type-aliases-package: com.rianbowsea.bean # \u914D\u7F6Exml\u6620\u5C04\u6587\u4EF6\u4E2D\u6307\u5B9A\u7684\u5B9E\u4F53\u7C7B\u522B\u540D\u8DEF\u5F84
